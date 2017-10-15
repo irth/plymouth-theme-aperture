@@ -1,0 +1,75 @@
+scr_w = Window.GetWidth();
+scr_h = Window.GetHeight();
+
+images = [];
+images[0] = Image("img/0.png");
+
+frame_w = images[0].GetWidth();
+frame_h = images[0].GetHeight();
+
+pos_x = scr_w/2 - frame_w/2;
+pos_y = scr_h/2 - frame_h/2;
+
+images[1] = Image("img/1.png");
+images[2] = Image("img/2.png");
+images[3] = Image("img/3.png");
+images[4] = Image("img/4.png");
+images[5] = Image("img/5.png");
+images[6] = Image("img/6.png");
+
+
+sprites[6] = Sprite(images[6]);
+sprites[6].SetX(pos_x);
+sprites[6].SetY(pos_y);
+
+sprites[5] = Sprite(images[5]);
+sprites[5].SetX(pos_x);
+sprites[5].SetY(pos_y);
+
+sprites[4] = Sprite(images[4]);
+sprites[4].SetX(pos_x);
+sprites[4].SetY(pos_y);
+
+sprites[3] = Sprite(images[3]);
+sprites[3].SetX(pos_x);
+sprites[3].SetY(pos_y);
+
+sprites[2] = Sprite(images[2]);
+sprites[2].SetX(pos_x);
+sprites[2].SetY(pos_y);
+
+sprites[1] = Sprite(images[1]);
+sprites[1].SetX(pos_x);
+sprites[1].SetY(pos_y);
+
+sprites[0] = Sprite(images[0]);
+sprites[0].SetX(pos_x);
+sprites[0].SetY(pos_y);
+
+
+time = 0;
+
+fun fade_in (spr, zIndex, time, start, duration) {
+  if (time > start && time < start + duration) {
+    sprites[spr].SetOpacity((time - start) * (1/duration));
+    sprites[spr].SetZ(zIndex);
+  }
+}
+
+fun refresh_callback ()
+  {
+    time += 1;
+    sec = time/50;
+    fade_in(1, 10, sec, 0.7, 0.1);
+    fade_in(2, 11, sec, 0.8, 0.1);
+
+    fade_in(3, 12, sec, 1.5, 0.1);
+    fade_in(4, 13, sec, 1.6, 0.1);
+
+
+    fade_in(5, 14, sec, 2.3, 0.1);
+    fade_in(6, 15, sec, 2.4, 0.1);
+
+  }
+  
+Plymouth.SetRefreshFunction (refresh_callback);

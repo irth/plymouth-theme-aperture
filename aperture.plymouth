@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Aperture Science
+Description=This is an Aperture Science theme for Plymouth
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/aperture
+ScriptFile=/usr/share/plymouth/themes/aperture/aperture.script
